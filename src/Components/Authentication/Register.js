@@ -67,7 +67,7 @@ const Register = () => {
                                 <div class="text-center lg:text-left">
                                     <button
                                         type="button"
-                                        class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                        class="inline-block px-7 py-3 bg-hotpink text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-base-black hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out"
                                     >
                                         Submit
                                     </button>
@@ -93,7 +93,7 @@ const Register = () => {
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
-                                        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                                        class="inline-block p-3 bg-base-black text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-hotpink hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out mx-1"
                                     >
                                         {/* <!-- Google --> */}
                                         <svg aria-hidden="true"
@@ -118,7 +118,7 @@ const Register = () => {
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
-                                        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                                        class="inline-block p-3 bg-base-black text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out mx-1"
                                     >
 
                                         {/* <!-- Github --> */}

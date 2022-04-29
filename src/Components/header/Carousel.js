@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import caro1 from './caroImage/caro1.png'
 import caro2 from './caroImage/caro2.png'
 import caro3 from './caroImage/caro3.png'
@@ -46,8 +47,10 @@ const Carousel = () => {
                                 <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
                                 <h5 className="text-6xl">
                                     <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
-                                <button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button>
-                                <button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button>
+                                
+                                <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
+                                
+                                <Link to='/underconstruction'><button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button></Link>
                             </div>
                             <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
                                 <span className='text-hotpink'>Luxury Furnitures</span> <br />
@@ -67,8 +70,11 @@ const Carousel = () => {
                                 <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
                                 <h5 className="text-6xl">
                                     <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
-                                <button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button>
-                                <button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button>
+                                
+                                    <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
+                                
+                                <Link to='/underconstruction'><button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button></Link>
+
                             </div>
                             <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
                                 <span className='text-hotpink'>Luxury Furnitures</span> <br />
@@ -88,8 +94,9 @@ const Carousel = () => {
                                 <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
                                 <h5 className="text-6xl">
                                     <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
-                                <button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button>
-                                <button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button>
+                                    <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
+                                
+                                <Link to='/underconstruction'><button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button></Link>
                             </div>
                             <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
                                 <span className='text-hotpink'>Luxury Furnitures</span> <br />

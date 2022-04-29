@@ -1,6 +1,8 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import PageNotFound from './Components/404/PageNotFound';
+import UnderConstruction from './Components/404/UnderConstruction';
 import Login from './Components/Authentication/Login';
 import Register from './Components/Authentication/Register';
 import NavBar from './Components/CommonRouts/NavBar';
@@ -20,6 +22,8 @@ function App() {
         <Route path='/removeproduct' element={<RemoveProduct />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='*' element={<PageNotFound />} />
+        <Route path='/underconstruction' element={<UnderConstruction />} />
 
       </Routes>
     </div>

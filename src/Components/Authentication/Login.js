@@ -24,7 +24,7 @@ const Login = () => {
                                 {/* <!-- Email input --> */}
                                 <div class="mb-6">
                                     <input
-                                        type="text"
+                                        type="email"
                                         class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
                                         placeholder="Email address"
@@ -58,7 +58,7 @@ const Login = () => {
                                 <div class="text-center lg:text-left">
                                     <button
                                         type="button"
-                                        class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                        class="inline-block px-7 py-3 bg-hotpink text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-base-black hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out"
                                     >
                                         Login
                                     </button>
@@ -85,7 +85,7 @@ const Login = () => {
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
-                                        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                                        class="inline-block p-3 bg-base-black text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-hotpink hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out mx-1"
                                     >
                                         {/* <!-- Google --> */}
                                         <svg aria-hidden="true"
@@ -110,7 +110,7 @@ const Login = () => {
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
-                                        class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                                        class="inline-block p-3 bg-base-black text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out mx-1"
                                     >
 
                                         {/* <!-- Github --> */}
