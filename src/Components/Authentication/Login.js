@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -19,7 +20,7 @@ const Login = () => {
                         </div>
                         <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                             <form>
-                                
+                                <p className='text-2xl my-3'>Please Login</p>
                                 {/* <!-- Email input --> */}
                                 <div class="mb-6">
                                     <input
@@ -63,11 +64,10 @@ const Login = () => {
                                     </button>
                                     <p class="text-sm font-semibold mt-2 pt-1 mb-0">
                                         Don't have an account?
-                                        <a
-                                            href="#!"
+                                        <Link
+                                            to='/register'
                                             class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                                        >Register</a
-                                        >
+                                        >Register</Link>
                                     </p>
                                 </div>
                                 {/* or section */}
