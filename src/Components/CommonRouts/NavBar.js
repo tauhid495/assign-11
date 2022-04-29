@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../header/caroImage/logo.png'
+import CustomLink from './CustomLink';
 
 const NavBar = () => {
     return (
@@ -21,7 +22,7 @@ const NavBar = () => {
                 ">
                 <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
 
-                    <Link to='/'><img className='w-[130px]' src={logo} alt="" /></Link>
+                    <CustomLink to='/'><img className='w-[130px]' src={logo} alt="" /></CustomLink>
 
                     <button class="
                                 navbar-toggler
@@ -43,22 +44,25 @@ const NavBar = () => {
                     <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
 
                         {/* <!-- Left links --> */}
-                        <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
+                        <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
 
                         </ul>
                         {/* <!--start of Right links --> */}
-                        <ul class="navbar-nav flex flex-col pl-0 list-style-none ">
-                            <li as={Link} to='/login'  class="nav-item px-2">
-                                <a class="nav-link text-gray-500 hover:text-gray-700 p-0" aria-current="page" href='#'>Home</a>
+                        <ul className="navbar-nav flex flex-col pl-0 list-style-none ">
+                            <li class="nav-item pr-2">
+                                <CustomLink to='/' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Home</CustomLink>
                             </li>
                             <li class="nav-item pr-2">
-                                <a class="nav-link text-gray-500 hover:text-gray-700 p-0">Features</a>
+                                <CustomLink to='/addproduct' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Add Product</CustomLink>
                             </li>
                             <li class="nav-item pr-2">
-                                <Link to='/login' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Login</Link>
+                                <CustomLink to='/removeproduct' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Remove Product</CustomLink>
                             </li>
                             <li class="nav-item pr-2">
-                               
+                                <CustomLink to='/register' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Register</CustomLink>
+                            </li>
+                            <li class="nav-item pr-2">
+                                <CustomLink to='/login' class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Login</CustomLink>
                             </li>
                         </ul>
 

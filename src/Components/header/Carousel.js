@@ -1,7 +1,7 @@
 import React from 'react';
-import caro1 from'./caroImage/caro1.png'
-import caro2 from'./caroImage/caro2.png'
-import caro3 from'./caroImage/caro3.png'
+import caro1 from './caroImage/caro1.png'
+import caro2 from './caroImage/caro2.png'
+import caro3 from './caroImage/caro3.png'
 
 const Carousel = () => {
     return (
@@ -41,9 +41,17 @@ const Carousel = () => {
                             className="block w-full"
                             alt="Motorbike Smoke"
                         />
-                        <div className="carousel-caption hidden md:block absolute text-start">
-                            <h5 className="text-xl">First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                        <div>
+                            <div className="carousel-caption hidden md:block absolute top-44 left-28">
+                                <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
+                                <h5 className="text-6xl">
+                                    <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
+                                <button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button>
+                                <button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button>
+                            </div>
+                            <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
+                                <span className='text-hotpink'>Luxury Furnitures</span> <br />
+                                <span>For Home & Business</span></p>
                         </div>
                     </div>
 
@@ -54,9 +62,17 @@ const Carousel = () => {
                             className="block w-full"
                             alt="Mountaintop"
                         />
-                        <div className="carousel-caption hidden md:block absolute text-start">
-                            <h5 className="text-xl">Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                        <div>
+                            <div className="carousel-caption hidden md:block absolute top-44 left-28">
+                                <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
+                                <h5 className="text-6xl">
+                                    <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
+                                <button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button>
+                                <button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button>
+                            </div>
+                            <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
+                                <span className='text-hotpink'>Luxury Furnitures</span> <br />
+                                <span>For Home & Business</span></p>
                         </div>
                     </div>
 
@@ -67,9 +83,17 @@ const Carousel = () => {
                             className="block w-full"
                             alt="Woman Reading a Book"
                         />
-                        <div className="carousel-caption hidden md:block absolute text-start">
-                            <h5 className="text-xl">Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
+                        <div>
+                            <div className="carousel-caption hidden md:block absolute top-44 left-28">
+                                <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
+                                <h5 className="text-6xl">
+                                    <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
+                                <button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button>
+                                <button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button>
+                            </div>
+                            <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
+                                <span className='text-hotpink'>Luxury Furnitures</span> <br />
+                                <span>For Home & Business</span></p>
                         </div>
                     </div>
                 </div>
@@ -77,24 +101,24 @@ const Carousel = () => {
 
                 {/* <!-- Controls --> */}
                 <button
-    class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-    type="button"
-    data-bs-target="#carouselDarkVariant"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-    type="button"
-    data-bs-target="#carouselDarkVariant"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-                
+                    class="opacity-0 carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+                    type="button"
+                    data-bs-target="#carouselDarkVariant"
+                    data-bs-slide="prev"
+                >
+                    <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                    class="opacity-0 carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+                    type="button"
+                    data-bs-target="#carouselDarkVariant"
+                    data-bs-slide="next"
+                >
+                    <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
             </div>
         </div>
     );
