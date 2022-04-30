@@ -4,6 +4,27 @@ const AddProduct = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        const name =e.target.name.value;
+        const image =e.target.image.value;
+        const price =e.target.price.value;
+        const supplier =e.target.supplier.value;
+        const description =e.target.description.value;
+
+        const item={name, image, price, supplier, description };
+
+        // sending data to server
+        fetch('http://localhost:5000/item', {
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(item)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data, 'success');
+        })
+
     }
 
     return (
@@ -18,8 +39,8 @@ const AddProduct = () => {
                 <form onSubmit={handleSubmit} className=''>
                     <div className='text-xl text-center'> Add Product</div>
                     <div className="form-group mb-6">
-                        <label htmlFor="product name" className="form-label inline-block mb-2 text-gray-700">Product Name</label>
-                        <input type="text" className="form-control
+                        <label htmlFor="name" className="form-label inline-block mb-2 text-gray-700">Product Name</label>
+                        <input type="text" name = 'name'className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -28,8 +49,8 @@ const AddProduct = () => {
                     </div>
 
                     <div className="form-group mb-6">
-                        <label htmlFor="product image" className="form-label inline-block mb-2 text-gray-700">Product Image</label>
-                        <input type="text" className="form-control
+                        <label htmlFor="picture" className="form-label inline-block mb-2 text-gray-700">Product Image</label>
+                        <input type="text" name = 'image' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -37,8 +58,8 @@ const AddProduct = () => {
                             " placeholder="Img URL" />
                     </div>
                     <div className="form-group mb-6">
-                        <label htmlFor="product image" className="form-label inline-block mb-2 text-gray-700">Supplier Name</label>
-                        <input type="text" className="form-control
+                        <label htmlFor="supplier" className="form-label inline-block mb-2 text-gray-700">Supplier Name</label>
+                        <input type="text" name = 'supplier' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -47,8 +68,8 @@ const AddProduct = () => {
                     </div>
 
                     <div className="form-group mb-6">
-                        <label for="product Price" className="form-label inline-block mb-2 text-gray-700">Product Price</label>
-                        <input type="number" className="form-control
+                        <label htmlFor="price" className="form-label inline-block mb-2 text-gray-700">Product Price</label>
+                        <input type="number" name = 'price' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -57,8 +78,8 @@ const AddProduct = () => {
                     </div>
 
                     <div className="form-group mb-6">
-                        <label for="product name" className="form-label inline-block mb-2 text-gray-700">Product Description</label>
-                        <textarea type="textarea" className="form-control
+                        <label htmlFor="description" className="form-label inline-block mb-2 text-gray-700">Product Description</label>
+                        <textarea type="textarea" name = 'description' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
