@@ -47,9 +47,9 @@ const Carousel = () => {
                                 <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
                                 <h5 className="text-6xl">
                                     <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
-                                
+
                                 <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
-                                
+
                                 <Link to='/underconstruction'><button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button></Link>
                             </div>
                             <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
@@ -70,9 +70,9 @@ const Carousel = () => {
                                 <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
                                 <h5 className="text-6xl">
                                     <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
-                                
-                                    <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
-                                
+
+                                <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
+
                                 <Link to='/underconstruction'><button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button></Link>
 
                             </div>
@@ -94,8 +94,8 @@ const Carousel = () => {
                                 <p className='text-lg'>- A UNIQUE COLLECTION OF - </p>
                                 <h5 className="text-6xl">
                                     <div className='text-hotpink mb-3 '>Luxury Furnitures</div>  For Home & Business</h5>
-                                    <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
-                                
+                                <Link to='/underconstruction'><button className='bg-hotpink text-white py-2 px-6 hover:bg-base-black mr-7 my-5'> Get A Quate</button></Link>
+
                                 <Link to='/underconstruction'><button className='bg-base-black text-white py-2 px-6 hover:bg-hotpink'> Learn More</button></Link>
                             </div>
                             <p className="carousel-caption md:hidden absolute text-start top-4 text-xs">A unique collection of <br />
@@ -108,22 +108,22 @@ const Carousel = () => {
 
                 {/* <!-- Controls --> */}
                 <button
-                    class="opacity-0 carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+                    className="opacity-0 carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                     type="button"
                     data-bs-target="#carouselDarkVariant"
                     data-bs-slide="prev"
                 >
-                    <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span className="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
                 </button>
                 <button
-                    class="opacity-0 carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+                    className="opacity-0 carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
                     type="button"
                     data-bs-target="#carouselDarkVariant"
                     data-bs-slide="next"
                 >
-                    <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span className="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
                 </button>
 
             </div>
