@@ -23,6 +23,8 @@ const AddProduct = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data, 'success');
+            alert('user added')
+            e.target.reset();
         })
 
     }
