@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import useItemById from '../../hooks/itemsById';
+
 
 const ItemDetail = () => {
-    const [inventory, setInventory]=useState(0);
-    // let inventory=0;
-
+    const [inventory, setInventory] = useState(0);
+    
     const handleAddStock = (e) => {
         e.preventDefault();
-        
         const stockInput = e.target.addStock.value;
-        const stockInputInt= parseFloat(stockInput)
-        const newStock= parseFloat(inventory)+ stockInputInt;
+        const stockInputInt = parseFloat(stockInput)
+        const newStock = parseFloat(inventory) + stockInputInt;
         setInventory(newStock);
         e.target.reset();
     }
 
+    const handleItemDelivery = () => {
+     if(inventory<=0){
+         alert('Stock is Empty')
+         return;
+     }
+        const newStock=(inventory-1);
+        setInventory(newStock);
 
-    const { itemId } = useParams();
+    }
 
-    const [itemData, setItemData] = useState({});
-    useEffect(() => {
-        const url = `http://localhost:5000/item/${itemId}`;
-        
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setItemData(data));
-    }, [])
+    const [itemData, setItemData] = useItemById();
+    
 
     return (
         <div className='h-screen'>
@@ -51,9 +51,9 @@ const ItemDetail = () => {
                             Price: {itemData.price}
                         </p>
                         <div className='flex justify-between mb-3'>
-                            <p>Available Item : {inventory } pcs</p>
-                            <button
-                                type="button" className="ml-7 inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
+                            <p>Available Item : {inventory} pcs</p>
+                            <button onClick={handleItemDelivery}
+                                type="submit" className="ml-7 inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
                         </div>
 
 
