@@ -102,8 +102,8 @@ const AddProduct = () => {
 
 
                     <button type="submit" className=" block mx-auto
-                        px-6 py-2.5 bg-blue-600 text-white font-medium text-xs
-                        leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Click to Add</button>
+                        px-6 py-2.5 bg-hotpink text-white font-medium text-xs
+                        leading-tight uppercase rounded shadow-md hover:bg-base-black hover:shadow-lg   transition duration-150 ease-in-out">Click to Add</button>
                 </form>
             </div>
         </div>

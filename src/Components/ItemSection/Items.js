@@ -5,6 +5,10 @@ const Items = ({ item }) => {
     const { _id, name, image, description, price, supplier, inventory } = item;
 
     const navigate = useNavigate();
+    
+    const sliceDescription = (text) => {
+        return text.length < 30 ? text : text.slice(0, 80) + "... ";
+      };
 
     const navigateItemDetail = id => {
         navigate(`/item/${id}`);
@@ -22,7 +26,7 @@ const Items = ({ item }) => {
                     <div className="p-6">
                         <h5 className="text-gray-900 text-xl font-medium mb-1">{item.name}</h5>
                         <p className="text-gray-700 text-base mb-1">
-                            {item.description}
+                            {sliceDescription(item.description)}
                         </p>
                         <p className="text-gray-700 text-base mb-1">
                             Supplier : {item.supplier}

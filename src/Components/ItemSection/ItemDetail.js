@@ -65,7 +65,7 @@ const ItemDetail = () => {
             <div className="my-7 flex justify-center">
                 <div className=" shadow hover:shadow-2xl bg-gray-50 hover:bg-white max-w-sm transition duration-300 ease-in-out p-4 border border-gray-50 hover:border-gray-200">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-sm">
-                        <img className=" hover:scale-110 transition duration-300 ease-in-out" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt="" />
+                        <img className=" hover:scale-110 transition duration-300 ease-in-out" src={itemData.image} alt="" />
                     </div>
 
 

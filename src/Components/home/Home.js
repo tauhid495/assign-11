@@ -6,14 +6,14 @@ import Items from '../ItemSection/Items';
 
 const Home = () => {
     const [items, setItems] = useItems();
-
+const newItems=items.slice(1,7)
     return (
         <div>
             <Carousel />
             <div className='container w-full mx-auto my-7'>
                 <div className='p-4 grid sm:grid-cols-1 md:grid-cols-3 gap-y-7'>
                     {
-                        items.map(item => <Items
+                        newItems.map(item => <Items
                             key={item._id}
                             item={item} />)
                     }
