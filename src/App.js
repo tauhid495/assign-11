@@ -9,7 +9,7 @@ import NavBar from './Components/CommonRouts/NavBar';
 import Home from './Components/home/Home';
 import ItemDetail from './Components/ItemSection/ItemDetail';
 import AddProduct from './Components/ProductManagement/AddProduct';
-import RemoveProduct from './Components/ProductManagement/RemoveProduct';
+import ManageInventories from './Components/ProductManagement/ManageInventories';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/addproduct' element={<AddProduct />} />
         <Route path='/item/:itemId' element={<ItemDetail />} />
-        <Route path='/removeproduct' element={<RemoveProduct />} />
+        <Route path='/manageinventories' element={<ManageInventories />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<PageNotFound />} />

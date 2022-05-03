@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 const ItemDetail = () => {
@@ -64,7 +64,7 @@ const ItemDetail = () => {
         <div className='h-screen'>
             <div className="my-7 flex justify-center">
                 <div className=" shadow hover:shadow-2xl bg-gray-50 hover:bg-white max-w-sm transition duration-300 ease-in-out p-4 border border-gray-50 hover:border-gray-200">
-                    <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
+                    <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-sm">
                         <img className=" hover:scale-110 transition duration-300 ease-in-out" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt="" />
                     </div>
 
@@ -91,17 +91,21 @@ const ItemDetail = () => {
 
 
                         {/* stock add form */}
-                        <form onSubmit={handleAddStock} className='flex justi'>
-                            <input className='w-[175px] border border-gray-300 py-1 px-2' type="text" name='addStock' />
+                        <form onSubmit={handleAddStock} className='flex '>
+                            <input className='w-8/12 border border-gray-300 px-2' type="text" name='addStock' />
 
                             <button
-                                type="submit" className=" inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Add stock</button>
+                                type="submit" className=" inline-block px-6 py-2.5 hover:bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Add stock</button>
                         </form>
                     </div>
                 </div>
 
             </div>
-
+            
+            <div className='text-center'>
+                <Link className='drop-shadow-sm text-xl text-hotpink hover:text-base-black'
+                    to='/manageinventories'>Manage Inventories</Link>
+            </div>
         </div>
     );
 };

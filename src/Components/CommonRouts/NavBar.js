@@ -44,7 +44,7 @@ const NavBar = () => {
                                 <CustomLink to='/addproduct' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Add Product</CustomLink>
                             </li>
                             <li className="nav-item pr-2">
-                                <CustomLink to='/removeproduct' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Remove Product</CustomLink>
+                                <CustomLink to='/manageinventories' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Manage Inventories</CustomLink>
                             </li>
                             <li className="nav-item pr-2">
                                 <CustomLink to='/register' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Register</CustomLink>

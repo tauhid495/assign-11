@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useItems from '../../hooks/useItems';
 import Carousel from '../header/Carousel';
 import Items from '../ItemSection/Items';
@@ -16,6 +17,11 @@ const Home = () => {
                             key={item._id}
                             item={item} />)
                     }
+
+                </div>
+                <div className='text-center'>
+                    <Link className='drop-shadow-sm text-xl text-hotpink hover:text-base-black'
+                        to='/manageinventories'>Manage Inventories</Link>
                 </div>
             </div>
         </div>

@@ -9,8 +9,9 @@ const AddProduct = () => {
         const price =e.target.price.value;
         const supplier =e.target.supplier.value;
         const description =e.target.description.value;
+        const inventory =e.target.inventory.value;
 
-        const item={name, image, price, supplier, description };
+        const item={name, image, price, supplier, description, inventory };
 
         // sending data to server
         fetch('http://localhost:5000/item', {
@@ -77,6 +78,15 @@ const AddProduct = () => {
                             border border-solid border-gray-300 rounded
                             transition ease-in-out m-0
                             " placeholder="Price" />
+                    </div>
+                    <div className="form-group mb-6">
+                        <label htmlFor="price" className="form-label inline-block mb-2 text-gray-700">Product Quantity</label>
+                        <input type="number" name = 'inventory' className="form-control
+                            block  w-full px-3 py-1.5 text-base font-normal
+                            text-gray-700 bg-white bg-clip-padding
+                            border border-solid border-gray-300 rounded
+                            transition ease-in-out m-0
+                            " placeholder="Item quantity" />
                     </div>
 
                     <div className="form-group mb-6">
