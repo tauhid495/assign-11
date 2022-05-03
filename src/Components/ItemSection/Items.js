@@ -2,7 +2,7 @@ import React, { } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Items = ({ item }) => {
-    const { _id, name, image, description, price, supplier, } = item;
+    const { _id, name, image, description, price, supplier, inventory } = item;
 
     const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Items = ({ item }) => {
                         </p>
                         <p className="text-gray-700 text-base mb-4">
                             Price: {item.price}
-                            <span className='ml-7'> Available Item : { } pcs</span>
+                            <span className='ml-7'> Stock : {item.inventory } pcs</span>
                         </p>
                         <button onClick={() => navigateItemDetail(_id)}
                             type="button" className=" inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Update stock</button>

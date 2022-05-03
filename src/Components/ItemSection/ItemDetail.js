@@ -1,31 +1,76 @@
 import React, { useEffect, useState } from 'react';
-import useItemById from '../../hooks/itemsById';
+import { useParams } from 'react-router-dom';
 
 
 const ItemDetail = () => {
+
+    const {itemId}= useParams();
     const [inventory, setInventory] = useState(0);
+
+    const [itemData, setItemData] = useState({});
     
+    useEffect(() => {
+        const url = `http://localhost:5000/item/${itemId}`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setItemData(data));
+    }, [useState(0)])
+
     const handleAddStock = (e) => {
         e.preventDefault();
+        
         const stockInput = e.target.addStock.value;
-        const stockInputInt = parseFloat(stockInput)
-        const newStock = parseFloat(inventory) + stockInputInt;
-        setInventory(newStock);
+        const stockInputInt = parseInt(stockInput)
+        if (stockInputInt <= 0 || isNaN(stockInputInt)) {
+            alert('Input a positive quantity')
+            return;
+        }else{
+            console.log(itemData.inventory, stockInputInt);
+        const newInventory = (itemData.inventory) + (stockInputInt);
+        // setInventory(newInventory);
+        console.log(newInventory);
+
+        fetch(`http://localhost:5000/item/${itemId}`,{
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({newInventory}),
+          })
+            .then((res) => res.json())
+            .then(data=>console.log(data))
+
         e.target.reset();
+        }
     }
 
     const handleItemDelivery = () => {
-     if(inventory<=0){
-         alert('Stock is Empty')
-         return;
-     }
-        const newStock=(inventory-1);
+        if (inventory <= 0) {
+            alert('Stock is Empty')
+            return;
+        }
+        const newStock = (inventory - 1);
         setInventory(newStock);
-
     }
 
-    const [itemData, setItemData] = useItemById();
-    
+// update stock section
+// const handleUpdateStock=e=>{
+//     console.log(inventory);
+
+//     fetch(`http://localhost:5000/item/${itemId}`,{
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({inventory}),
+//   })
+//     .then((res) => res.json())
+//     .then(data=>console.log(data))
+// }
+
+
+
 
     return (
         <div className='h-screen'>
@@ -51,9 +96,9 @@ const ItemDetail = () => {
                             Price: {itemData.price}
                         </p>
                         <div className='flex justify-between mb-3'>
-                            <p>Available Item : {inventory} pcs</p>
+                            <p>Available Item : {itemData.inventory} pcs</p>
                             <button onClick={handleItemDelivery}
-                                type="submit" className="ml-7 inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
+                                type="submit" className="ml-7 inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
                         </div>
 
 
@@ -64,6 +109,11 @@ const ItemDetail = () => {
                             <button
                                 type="submit" className=" inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Add stock</button>
                         </form>
+
+                        
+
+                            {/* <button onClick={handleUpdateStock}
+                                type="submit" className=" inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Update stock</button> */}
                     </div>
 
                 </div>
