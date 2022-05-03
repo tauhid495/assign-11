@@ -4,73 +4,61 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetail = () => {
 
-    const {itemId}= useParams();
-    const [inventory, setInventory] = useState(0);
+    const { itemId } = useParams();
 
     const [itemData, setItemData] = useState({});
-    
+
     useEffect(() => {
         const url = `http://localhost:5000/item/${itemId}`;
 
         fetch(url)
             .then(res => res.json())
             .then(data => setItemData(data));
-    }, [useState(0)])
+    }, [useState({})])
 
     const handleAddStock = (e) => {
         e.preventDefault();
-        
+
         const stockInput = e.target.addStock.value;
         const stockInputInt = parseInt(stockInput)
         if (stockInputInt <= 0 || isNaN(stockInputInt)) {
             alert('Input a positive quantity')
             return;
-        }else{
-            console.log(itemData.inventory, stockInputInt);
-        const newInventory = (itemData.inventory) + (stockInputInt);
-        // setInventory(newInventory);
-        console.log(newInventory);
+        } else {
+            const newInventory = (itemData.inventory) + (stockInputInt);
 
-        fetch(`http://localhost:5000/item/${itemId}`,{
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({newInventory}),
-          })
-            .then((res) => res.json())
-            .then(data=>console.log(data))
+            fetch(`http://localhost:5000/item/${itemId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ newInventory }),
+            })
+                .then((res) => res.json())
+                .then(data => console.log(data))
 
-        e.target.reset();
+            e.target.reset();
         }
     }
 
     const handleItemDelivery = () => {
-        if (inventory <= 0) {
+        if (itemData.inventory <= 0) {
             alert('Stock is Empty')
             return;
+        } else {
+            const newInventory = (itemData.inventory - 1);
+
+            fetch(`http://localhost:5000/item/${itemId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ newInventory }),
+            })
+                .then((res) => res.json())
+                .then(data => console.log(data))
         }
-        const newStock = (inventory - 1);
-        setInventory(newStock);
     }
-
-// update stock section
-// const handleUpdateStock=e=>{
-//     console.log(inventory);
-
-//     fetch(`http://localhost:5000/item/${itemId}`,{
-//     method: "PUT",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({inventory}),
-//   })
-//     .then((res) => res.json())
-//     .then(data=>console.log(data))
-// }
-
-
-
 
     return (
         <div className='h-screen'>
@@ -104,18 +92,12 @@ const ItemDetail = () => {
 
                         {/* stock add form */}
                         <form onSubmit={handleAddStock} className='flex justi'>
-                            <input className='w-[175px] border border-gray-300 py-1' type="text" name='addStock' />
+                            <input className='w-[175px] border border-gray-300 py-1 px-2' type="text" name='addStock' />
 
                             <button
                                 type="submit" className=" inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Add stock</button>
                         </form>
-
-                        
-
-                            {/* <button onClick={handleUpdateStock}
-                                type="submit" className=" inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Update stock</button> */}
                     </div>
-
                 </div>
 
             </div>
