@@ -9,7 +9,7 @@ const AddProduct = () => {
         const price =e.target.price.value;
         const supplier =e.target.supplier.value;
         const description =e.target.description.value;
-        const inventory =e.target.inventory.value;
+        const inventory =parseFloat(e.target.inventory.value);
 
         const item={name, image, price, supplier, description, inventory };
 
@@ -43,7 +43,7 @@ const AddProduct = () => {
                     <div className='text-xl text-center'> Add Product</div>
                     <div className="form-group mb-6">
                         <label htmlFor="name" className="form-label inline-block mb-2 text-gray-700">Product Name</label>
-                        <input type="text" name = 'name'className="form-control
+                        <input required type="text" name = 'name'className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -53,7 +53,7 @@ const AddProduct = () => {
 
                     <div className="form-group mb-6">
                         <label htmlFor="picture" className="form-label inline-block mb-2 text-gray-700">Product Image</label>
-                        <input type="text" name = 'image' className="form-control
+                        <input required type="text" name = 'image' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -62,7 +62,7 @@ const AddProduct = () => {
                     </div>
                     <div className="form-group mb-6">
                         <label htmlFor="supplier" className="form-label inline-block mb-2 text-gray-700">Supplier Name</label>
-                        <input type="text" name = 'supplier' className="form-control
+                        <input required type="text" name = 'supplier' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -72,7 +72,7 @@ const AddProduct = () => {
 
                     <div className="form-group mb-6">
                         <label htmlFor="price" className="form-label inline-block mb-2 text-gray-700">Product Price</label>
-                        <input type="number" name = 'price' className="form-control
+                        <input required type="number" name = 'price' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -81,7 +81,7 @@ const AddProduct = () => {
                     </div>
                     <div className="form-group mb-6">
                         <label htmlFor="price" className="form-label inline-block mb-2 text-gray-700">Product Quantity</label>
-                        <input type="number" name = 'inventory' className="form-control
+                        <input required type="number" name = 'inventory' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
