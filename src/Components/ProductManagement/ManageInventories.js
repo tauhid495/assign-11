@@ -28,7 +28,7 @@ const ManageInventories = () => {
 
 
     return (
-        <div className='h-screen'>
+        <div className='min-h-screen pb-12'>
             <div className='text-center text-4xl my-6'>Manage Inventory Items</div>
 
             <div className='flex justify-between w-1/2 mx-auto'>

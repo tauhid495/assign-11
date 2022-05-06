@@ -1,8 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase.init';
 import logo from '../header/caroImage/logo.png'
 import CustomLink from './CustomLink';
 
 const NavBar = () => {
+
+    const [user] = useAuthState(auth);
+
+    const handleLogOut = () => {
+        signOut(auth);
+    }
     return (
         <>
             <nav className="
@@ -40,18 +49,55 @@ const NavBar = () => {
                             <li className="nav-item pr-2">
                                 <CustomLink to='/' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Home</CustomLink>
                             </li>
-                            <li className="nav-item pr-2">
-                                <CustomLink to='/addproduct' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Add Product</CustomLink>
-                            </li>
-                            <li className="nav-item pr-2">
-                                <CustomLink to='/manageinventories' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Manage Inventories</CustomLink>
-                            </li>
-                            <li className="nav-item pr-2">
-                                <CustomLink to='/register' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Register</CustomLink>
-                            </li>
-                            <li className="nav-item pr-2">
-                                <CustomLink to='/login' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Login</CustomLink>
-                            </li>
+
+                            {
+                                user ?
+                                    <li className="nav-item pr-2">
+                                        <CustomLink to='/addproduct' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Add Product</CustomLink>
+                                    </li>
+                                    :
+                                    <li></li>
+                            }
+
+                            {
+                                user ?
+                                    <li className="nav-item pr-2">
+                                        <CustomLink to='/myitems' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >My Items</CustomLink>
+                                    </li>
+                                    :
+                                    <li></li>
+                            }
+
+
+
+                            {
+                                user ?
+                                    <li className="nav-item pr-2">
+                                        <CustomLink to='/manageinventories' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Manage Inventories</CustomLink>
+                                    </li>
+                                    :
+                                    <li></li>
+                            }
+
+
+                            {
+                                user ?
+                                    <li></li>
+                                    :
+                                    <li className="nav-item pr-2">
+                                        <CustomLink to='/register' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Register</CustomLink>
+                                    </li>
+                            }
+                            {
+                                user ?
+                                    <li className="nav-item pr-2">
+                                        <CustomLink onClick={handleLogOut} to='/' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Logout</CustomLink>
+                                    </li>
+                                    :
+                                    <li className="nav-item pr-2">
+                                        <CustomLink to='/login' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Login</CustomLink>
+                                    </li>
+                            }
                         </ul>
 
                     </div>

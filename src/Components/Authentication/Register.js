@@ -1,9 +1,105 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import { auth } from '../../firebase.init';
 
 const Register = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const [errorMail, setErrorMail] = useState('');
+    const [errorPass, setErrorPass] = useState('');
+    const [agree, setAgree] = useState(false);
+
+    const [signInWithGithub, gitUser, gitError] = useSignInWithGithub(auth);
+
+    // Google Signin 
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        hookError,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+
+    const getName = (e) => {
+        setDisplayName(e.target.value);
+    }
+
+
+    const getValidEmail = (e) => {
+        const regexEmail = /^\S+@\S+\.\S+$/;
+        const validEmail = regexEmail.test(e.target.value);
+        if (validEmail) {
+            setEmail(e.target.value);
+            setErrorMail('');
+        } else {
+            setErrorMail('Invalid Email');
+        }
+
+    }
+
+    const getValidPassword = (e) => {
+        const regexPassword = /.{6,}/;
+        const validPassword = regexPassword.test(e.target.value);
+        
+        if (validPassword) {
+            setPassword(e.target.value);
+            setErrorPass('');
+        } else {
+            setErrorPass('Password must contain 6 characters.')
+        }
+    }
+
+    // create user with email and password
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // const agree = e.target.condition.checked;
+        if (agree) {
+            createUserWithEmailAndPassword(email, password);
+            toast.success('Form Submitted');
+        }
+    }
+
+
+
+    // page redirect
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from.pathname || '/';
+    useEffect(() => {
+        if (user || googleUser || gitUser) {
+            navigate(from);
+        }
+    }, [user || googleUser || gitUser])
+
+    // error handelling
+    useEffect(() => {
+        if (googleError) {
+            toast.error(googleError.message)
+        }
+    }, [googleError])
+
+    useEffect(() => {
+        if (hookError) {
+            toast.error(hookError.message)
+        }
+    }, [hookError])
+
+    useEffect(() => {
+        if (gitError) {
+            toast.error(gitError.message)
+        }
+    }, [gitError])
+
+
     return (
         <div>
+
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div
@@ -18,12 +114,14 @@ const Register = () => {
                                 alt="Sample image"
                             />
                         </div>
+
+                        {/* Register Form */}
                         <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <p className='text-2xl my-3'>Register Your Account</p>
                                 {/* <!-- Name input --> */}
                                 <div className="mb-6">
-                                    <input
+                                    <input onChange={getName}
                                         type="text"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
@@ -32,32 +130,34 @@ const Register = () => {
                                 </div>
                                 {/* <!-- Email input --> */}
                                 <div className="mb-6">
-                                    <input
+                                    <input onChange={getValidEmail}
                                         type="text"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
                                         placeholder="Email address"
                                     />
+                                    {errorMail && <p className='text-hotpink'>{errorMail}</p>}
                                 </div>
 
                                 {/* <!-- Password input --> */}
                                 <div className="mb-6">
-                                    <input
+                                    <input onChange={getValidPassword}
                                         type="password"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
                                         placeholder="Password"
                                     />
+                                    {errorPass && <p className='text-hotpink'>{errorPass}</p>}
                                 </div>
 
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="form-group form-check">
-                                        <input
+                                        <input onClick={() => setAgree(!agree)}
                                             type="checkbox"
                                             className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                            id="exampleCheck2"
+                                            id="condition"
                                         />
-                                        <label className="form-check-label inline-block text-gray-800" for="exampleCheck2"
+                                        <label className="form-check-label inline-block text-gray-800" htmlFor="exampleCheck2"
                                         >Agree with terms and conditions</label
                                         >
                                     </div>
@@ -65,9 +165,9 @@ const Register = () => {
                                 </div>
 
                                 <div className="text-center lg:text-left">
-                                    <button
-                                        type="button"
-                                        className="inline-block px-7 py-3 bg-hotpink text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-base-black hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out"
+                                    <button disabled={!agree}
+                                        type="submit"
+                                        className="inline-block px-7 py-3 bg-hotpink text-white font-medium text-sm leading-snug uppercase rounded shadow-md disabled:bg-gray-400 disabled:text-gray-200 hover:bg-base-black hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out"
                                     >
                                         Submit
                                     </button>
@@ -78,6 +178,7 @@ const Register = () => {
                                         >Please Login</Link>
                                     </p>
                                 </div>
+
                                 {/* or section */}
 
                                 <div
@@ -89,13 +190,16 @@ const Register = () => {
                                 {/* social login */}
                                 <div className="flex flex-row items-center justify-center lg:justify-start">
                                     <p className="text-lg mb-0 mr-4">Sign in with</p>
-                                    <button
+
+
+                                    {/* <!-- Google --> */}
+                                    <button onClick={() => signInWithGoogle()}
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
                                         className="inline-block p-3 bg-base-black text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-hotpink hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out mx-1"
                                     >
-                                        {/* <!-- Google --> */}
+                                        
                                         <svg aria-hidden="true"
                                             focusable="false"
                                             data-prefix="fab"
@@ -113,15 +217,13 @@ const Register = () => {
                                     </button>
 
 
-
-                                    <button
+                                    {/* gitHub */}
+                                    <button onClick={() => signInWithGithub()}
                                         type="button"
                                         data-mdb-ripple="true"
                                         data-mdb-ripple-color="light"
                                         className="inline-block p-3 bg-base-black text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg active:bg-gray-600 active:shadow-lg transition duration-150 ease-in-out mx-1"
                                     >
-
-                                        {/* <!-- Github --> */}
                                         <svg aria-hidden="true"
                                             focusable="false"
                                             data-prefix="fab"

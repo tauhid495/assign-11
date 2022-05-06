@@ -1,6 +1,10 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import { auth } from '../../firebase.init';
 
 const AddProduct = () => {
+    const [user]=useAuthState(auth);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -10,8 +14,9 @@ const AddProduct = () => {
         const supplier =e.target.supplier.value;
         const description =e.target.description.value;
         const inventory =parseFloat(e.target.inventory.value);
+        const userEmail=user.email;
 
-        const item={name, image, price, supplier, description, inventory };
+        const item={name, image, price, supplier, description, inventory, userEmail };
 
         // sending data to server
         fetch('http://localhost:5000/item', {
@@ -23,8 +28,9 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data, 'success');
-            alert('user added')
+            if(data.insertedId){
+                toast.success('Product added by user')
+            }
             e.target.reset();
         })
 

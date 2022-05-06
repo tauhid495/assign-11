@@ -35,7 +35,7 @@ const ItemDetail = () => {
                 body: JSON.stringify({ newInventory }),
             })
                 .then((res) => res.json())
-                .then(data => console.log(data))
+                .then(data => (data))
 
             e.target.reset();
         }
