@@ -37,7 +37,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div className='md:flex md:flex-row h-screen items-center'>
+        <div className='md:flex md:flex-row items-center min-h-screen'>
             {/* image sec */}
             <div className='basis-1/2 p-4'>
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample image" />

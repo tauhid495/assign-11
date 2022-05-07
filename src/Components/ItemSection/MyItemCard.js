@@ -12,7 +12,7 @@ const MyItemCard = ({myItem, handleDelete}) => {
     return (
         <div>
             <div className="flex justify-center mb-7">
-                <div className="md:w-[350px] h-[480px] shadow hover:shadow-2xl bg-gray-50 hover:bg-white max-w-sm transition duration-300 ease-in-out p-4 border border-gray-50 hover:border-gray-200 relative">
+                <div className="w-[350px] shadow hover:shadow-2xl bg-gray-50 hover:bg-white max-w-sm transition duration-300 ease-in-out p-4 border border-gray-50 hover:border-gray-200 relative">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img className="w-[350px] h-[230px]  hover:scale-110 transition duration-300 ease-in-out" src={myItem.image} alt="" />
                     </div>

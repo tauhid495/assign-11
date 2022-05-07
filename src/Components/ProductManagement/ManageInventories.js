@@ -29,9 +29,9 @@ const ManageInventories = () => {
 
     return (
         <div className='min-h-screen pb-12'>
-            <div className='text-center text-4xl my-6'>Manage Inventory Items</div>
+            <div className='text-center text-xl md:text-4xl my-6'>Manage Inventory Items</div>
 
-            <div className='flex justify-between w-1/2 mx-auto'>
+            <div className='md:flex justify-between w-1/2 mx-auto'>
                 <p className='md:w-2/4  mb-5'>Total Items : {items.length}</p> 
                 <button onClick={()=> navigate('/addproduct')}
                      className='mb-5 mr-6 bg-hotpink hover:bg-base-black text-white py-1 px-6'

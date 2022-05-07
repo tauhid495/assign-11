@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
-            <footer className="flex justify-between  bg-base-black text-white py-7">
-                <div className="ml-16  ">
+            <footer className="md:flex justify-between  bg-base-black text-white py-7">
+                <div className="ml-4 md:ml-16  ">
                     <div>
                         <h1>Useful Links :</h1>
                         <p><Link to='/home'>Home</Link></p>
@@ -20,8 +20,8 @@ const Footer = () => {
                 </div>
 
                 {/* social connections */}
-                <div>
-                    <div className="mr-16">
+                <div className='ml-4 md:mr-16'>
+                    <div className="">
                         <h1>Get connected with us on social networks:</h1>
                         <div className="flex items-center mb-6">
 

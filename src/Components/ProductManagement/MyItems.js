@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 import MyItemCard from '../ItemSection/MyItemCard';
 
@@ -43,7 +42,7 @@ const MyItems = () => {
 
             {/* cards */}
             
-            <div className='grid grid-cols-3 gap-7 mb-10'>
+            <div className='md:grid grid-cols-3 gap-7 mb-10'>
             {
                 myItems.map(myItem=>
                 <MyItemCard

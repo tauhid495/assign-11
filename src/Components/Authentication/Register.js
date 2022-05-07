@@ -13,7 +13,7 @@ const Register = () => {
     const [errorPass, setErrorPass] = useState('');
     const [agree, setAgree] = useState(false);
 
-    const [signInWithGithub, gitUser, gitError] = useSignInWithGithub(auth);
+    const [signInWithGithub, gitUser,gitLoading, gitError] = useSignInWithGithub(auth);
 
     // Google Signin 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -97,10 +97,21 @@ const Register = () => {
     }, [gitError])
 
 
+    if (loading||gitLoading||googleLoading) {
+        return (
+            <div class="flex justify-center items-center min-h-full">
+            <div class="spinner-border text-hotpink animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        );
+      }
+
+
     return (
         <div>
 
-            <section className="h-screen">
+            <section className="min-h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div
                         className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"

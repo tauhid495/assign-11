@@ -83,7 +83,7 @@ const ItemDetail = () => {
                         <p className="text-gray-700 text-base mb-4">
                             Price: {itemData.price}
                         </p>
-                        <div className='flex justify-between mb-3'>
+                        <div className='md:flex justify-between mb-3'>
                             <p>Available Item : {itemData.inventory} pcs</p>
                             <button onClick={handleItemDelivery}
                                 type="submit" className="ml-7 inline-block px-6 py-2.5 bg-hotpink text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-base-black hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">Delivered</button>
