@@ -9,7 +9,7 @@ const ItemDetail = () => {
     const [itemData, setItemData] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://pacific-reef-07454.herokuapp.com/item/${itemId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -27,7 +27,7 @@ const ItemDetail = () => {
         } else {
             const newInventory = (itemData.inventory) + (stockInputInt);
 
-            fetch(`http://localhost:5000/item/${itemId}`, {
+            fetch(`https://pacific-reef-07454.herokuapp.com/item/${itemId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const ItemDetail = () => {
         } else {
             const newInventory = (itemData.inventory - 1);
 
-            fetch(`http://localhost:5000/item/${itemId}`, {
+            fetch(`https://pacific-reef-07454.herokuapp.com/item/${itemId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

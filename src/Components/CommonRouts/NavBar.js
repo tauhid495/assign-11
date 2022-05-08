@@ -78,7 +78,12 @@ const NavBar = () => {
                                     :
                                     <li></li>
                             }
-
+                            <li className="nav-item pr-2">
+                                <CustomLink to='/blog' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Blogs</CustomLink>
+                            </li>
+                            <li className="nav-item pr-2">
+                                <CustomLink to='/aboutus' className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >AboutUs</CustomLink>
+                            </li>
 
                             {
                                 user ?

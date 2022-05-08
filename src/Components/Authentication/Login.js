@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-
+    const [user]=useAuthState(auth);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMail, setErrorMail] = useState('');
@@ -21,7 +21,7 @@ const Login = () => {
 
     const [
         signInWithEmail,
-        user,
+        user1,
         loading,
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
@@ -63,24 +63,28 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    useEffect(() => {
-        if (user || googleUser || gitUser) {
 
-            const url = 'http://localhost:5000/login';
+
+    useEffect(() => {
+
+
+        if (user) {
+
+            const url = 'https://pacific-reef-07454.herokuapp.com/login';
 
             fetch(url, {
                 method: "POST",
                 body: JSON.stringify({
-                    email: user?.email || googleUser?.email || gitUser?.email
+                    email: user.email
                 }),
                 headers: {
                     'Content-type': 'application/json',
                 },
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(data =>{
                     
-                    localStorage.setItem("accessToken", data.accessToken)
+                    localStorage.setItem("accessToken", data.token)
 
                     navigate(from, { replace: true });
                 });
@@ -115,9 +119,9 @@ const Login = () => {
 
     if (loading || gitLoading || googleLoading || sending) {
         return (
-            <div class="flex justify-center items-center min-h-screen">
-                <div class="spinner-border text-hotpink animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-                    <span class="visually-hidden">Loading...</span>
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="spinner-border text-hotpink animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
         );

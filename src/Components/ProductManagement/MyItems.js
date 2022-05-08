@@ -11,7 +11,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/item/${id}`
+            const url = `https://pacific-reef-07454.herokuapp.com/item/${id}`
 
             fetch(url, {
                 method: 'DELETE'
@@ -28,14 +28,14 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user.email;
-        const url = `http://localhost:5000/myitems?email=${email}`;
+        const url = `https://pacific-reef-07454.herokuapp.com/myitems?email=${email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setMyItems(data))
     }, [])
 
     return (
-        <div>
+        <div className='min-h-screen'>
             <h1 className='text-center text-2xl text-hotpink my-10 '>
                 My Added Items : <span className='text-base-black'>{myItems.length}</span>
             </h1>

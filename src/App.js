@@ -15,6 +15,9 @@ import { ToastContainer } from 'react-toastify';
 import Footer from './Components/CommonRouts/Footer';
 import RequireAuth from './Components/Authentication/RequireAuth';
 import MyItems from './Components/ProductManagement/MyItems';
+import Blog from './Components/Blog/Blog';
+import AboutUs from './Components/aboutUs/AboutUs';
+
 
 function App() {
   return (
@@ -44,6 +47,8 @@ function App() {
             <MyItems />
           </RequireAuth>
         } />
+        <Route path='/blog' element={<Blog/>} />
+        <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<PageNotFound />} />

@@ -12,7 +12,7 @@ const ManageInventories = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/item/${id}`
+            const url = `https://pacific-reef-07454.herokuapp.com/item/${id}`
 
             fetch(url, {
                 method: 'DELETE'

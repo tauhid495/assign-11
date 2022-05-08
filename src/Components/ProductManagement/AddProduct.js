@@ -19,9 +19,10 @@ const AddProduct = () => {
         const item={name, image, price, supplier, description, inventory, userEmail };
 
         // sending data to server
-        fetch('http://localhost:5000/item', {
+        fetch('https://pacific-reef-07454.herokuapp.com/item', {
             method:'POST',
             headers:{
+                'authorization':`${user.email} ${localStorage.getItem("accessToken")}`,
                 'content-type':'application/json'
             },
             body:JSON.stringify(item)

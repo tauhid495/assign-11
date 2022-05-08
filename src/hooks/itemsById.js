@@ -7,7 +7,7 @@ const useItemById=()=>{
 
     const [itemData, setItemData] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/item/${itemId}`;
+        const url = `https://pacific-reef-07454.herokuapp.com/item/${itemId}`;
 
         fetch(url)
             .then(res => res.json())
