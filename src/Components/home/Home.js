@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CustomarService from '../../extarSection/CustomarService';
+import Exparts from '../../extarSection/Exparts';
 import useItems from '../../hooks/useItems';
 import Carousel from '../header/Carousel';
 import Items from '../ItemSection/Items';
@@ -25,6 +27,12 @@ const Home = () => {
                 <div className='text-center'>
                     <Link className='drop-shadow-sm text-xl text-hotpink hover:text-base-black'
                         to='/manageinventories'>Manage Inventories</Link>
+                </div>
+                <div>
+                    <CustomarService/>
+                </div>
+                <div>
+                    <Exparts/>
                 </div>
             </div>
         </div>
